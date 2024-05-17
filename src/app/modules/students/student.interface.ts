@@ -1,6 +1,13 @@
 import { Schema, model, connect } from 'mongoose';
 
-export type guardian ={
+export type Guardian ={
+    
+    fatherName:string;
+    fatherContactNo:string;
+    motherName:string;
+    motherContactNo:string;
+}
+export type UserName ={
     
     fatherName:string;
     fatherContactNo:string;
@@ -8,12 +15,9 @@ export type guardian ={
     motherContactNo:string;
 }
 
-export type student = {
-  name:{
-    firstName:string;
-    middleNAme:string;
-    lastName: string;
-  }
+export type Student = {
+  id:string
+  name:UserName;
   contactNo : string;
   guardianNo:string;
   gender: 'male'| 'female';
@@ -22,5 +26,6 @@ export type student = {
   presentAddress:string;
   permanentAddress:string;
   bloodGroup?: '+A' | '+B' | '+AB' | '+O'|'-A' | '-B' | '-AB' | '-O';
-  guardian:guardian;
+  guardian:Guardian;
+  isActive:'active'|'blocked'
 }
